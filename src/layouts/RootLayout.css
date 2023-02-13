@@ -1,0 +1,18 @@
+.header{
+    width: 100vw;
+    background: var(--light-gray);
+    padding: 20px 0px;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.navbar a{
+    font-size: 25px;
+	font-weight: 800;
+    color:var(--text-dark-blue);
+    text-decoration: none;
+}
