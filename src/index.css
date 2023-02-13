@@ -57,3 +57,27 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+
+
+/* css varibale */
+:root {
+	/* (Dark Mode Elements) */
+	--dark-blue: hsl(209, 23%, 22%);
+	/* (Dark Mode Background) */
+	--bg-dark-blue: hsl(207, 26%, 17%);
+	/* (Light Mode Text) */
+	--text-dark-blue: hsl(200, 15%, 8%);
+	/* (Light Mode Input) */
+	--dark-gray: hsl(0, 0%, 52%);
+	/* (Light Mode Background) */
+	--light-gray: hsl(0, 0%, 98%);
+	/* (Dark Mode Text & Light Mode Elements) */
+	--white-color: hsl(0, 0%, 100%);
+}
+
+*{
+	font-family: 'Nunito Sans', sans-serif;
+	font-size: 14px;
+	font-weight: 300, 600, 800;
+}
