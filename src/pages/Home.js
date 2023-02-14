@@ -43,7 +43,7 @@ export default function Home() {
           <option>Filter by Region</option>
         </select>
       </section>
-      <section className="d-flex justify-content-between mt-4 flex-wrap">
+      <section className="d-flex justify-content-center justify-content-sm-between mt-4 flex-wrap">
         {result}
       </section>
     </>

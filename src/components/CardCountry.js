@@ -8,7 +8,7 @@ export default function CardCountry({
   capital,
 }) {
   return (
-    <Card style={{ width: "15rem", border: "none" }} className="my-5">
+    <Card style={{ width: "15rem" , border:"none" }} className="my-5 mx-1">
       <Card.Img variant="top" src={imgSrc} alt={title} />
       <Card.Body>
         <Card.Title style={{ fontWeight: "800" }} className="my-4">
