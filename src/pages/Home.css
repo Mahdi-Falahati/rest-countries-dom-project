@@ -1,0 +1,20 @@
+.searchForm button {
+  background: transparent;
+}
+
+.magnify {
+  font-size: 16px;
+}
+
+.searchForm input[type="search"] {
+  outline: none;
+  font-size: 16px;
+}
+
+.filter {
+  cursor: pointer;
+  outline: none;
+  width: 180px;
+  font-weight: 600px;
+  background: transparent;
+}
