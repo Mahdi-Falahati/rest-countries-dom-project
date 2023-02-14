@@ -1,18 +1,29 @@
-.header{
-    width: 100vw;
-    background: var(--light-gray);
-    padding: 20px 0px;
+.header {
+  background: var(--white-color);
+  border-bottom: 1px solid #e2e1e1;
 }
 
-.navbar{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+.navbar a {
+  font-size: 25px;
+  font-weight: 800;
+  color: var(--text-dark-blue);
+  text-decoration: none;
 }
 
-.navbar a{
-    font-size: 25px;
-	font-weight: 800;
-    color:var(--text-dark-blue);
-    text-decoration: none;
+.darkMode {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  letter-spacing: 1px;
+  font-weight: 600;
+  background-color: transparent;
+}
+
+.darkMode .moonIcon {
+  margin-right: 5px;
+  transform: rotate(-20deg);
+}
+
+.main {
+  background: var(--light-gray);
 }
