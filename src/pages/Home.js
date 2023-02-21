@@ -7,24 +7,76 @@ import "./Home.css";
 
 export default function Home() {
   const [countary, setCountary] = useState([]);
+
   useEffect(() => {
     Api("https://restcountries.com/v3.1/all").then((data) => {
       setCountary(data);
+      setInfo(data)
     });
   }, []);
 
-  const result = countary?.map((item, index) => {
-    return (
-      <CardCountry
-        key={index}
-        imgSrc={item.flags.png}
-        title={item.name.common}
-        population={item.population}
-        region={item.region}
-        capital={item.capital}
-      />
-    );
-  });
+  useEffect(() => {
+    const Result = countary?.map((item, index) => {
+      return (
+        <CardCountry
+          key={index}
+          imgSrc={item.flags.png}
+          title={item.name.common}
+          population={item.population}
+          region={item.region}
+          capital={item.capital}
+          name={item.name.common}
+        />
+      );
+    });
+    setResult(Result);
+  }, [countary]);
+
+  const selectCountryHandler = (e) => {
+    const filterByRegion = countary.filter((countary) => {
+      if (e.target.value === "All") {
+        return true;
+      } else {
+        return countary.region === e.target.value;
+      }
+    });
+
+    const selectResult = filterByRegion.map((item, index) => {
+      return (
+        <CardCountry
+          key={index}
+          imgSrc={item.flags.png}
+          title={item.name.common}
+          population={item.population}
+          region={item.region}
+          capital={item.capital}
+          name={item.name.common}
+        />
+      );
+    });
+    setResult(selectResult);
+  };
+
+  const liveSearchHandler = (term) => {
+    const filterByName = countary.filter((countery) => {
+      return countery.name.common.includes(term);
+    });
+
+    const searchResult = filterByName.map((item, index) => {
+      return (
+        <CardCountry
+          key={index}
+          imgSrc={item.flags.png}
+          title={item.name.common}
+          population={item.population}
+          region={item.region}
+          capital={item.capital}
+          name={item.name.common}
+        />
+      );
+    });
+    setResult(searchResult);
+  };
 
   return (
     <>
