@@ -7,6 +7,7 @@ import "./Home.css";
 
 export default function Home() {
   const [countary, setCountary] = useState([]);
+  const [info , setInfo] = useState([])
 
   useEffect(() => {
     Api("https://restcountries.com/v3.1/all").then((data) => {
@@ -54,12 +55,14 @@ export default function Home() {
         />
       );
     });
+
+    setInfo(filterByRegion)
     setResult(selectResult);
   };
 
   const liveSearchHandler = (term) => {
-    const filterByName = countary.filter((countery) => {
-      return countery.name.common.includes(term);
+    const filterByName = info.filter((item) => {
+      return item.name.common.includes(term);
     });
 
     const searchResult = filterByName.map((item, index) => {
