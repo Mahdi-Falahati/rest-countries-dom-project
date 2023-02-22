@@ -41,6 +41,11 @@ export default function Home() {
         </form>
         <select className="border-0 filter">
           <option>Filter by Region</option>
+          <option>Africa</option>
+          <option>America</option>
+          <option>Asia</option>
+          <option>Europe</option>
+          <option>Oceania</option>
         </select>
       </section>
       <section className="d-flex justify-content-center justify-content-sm-between mt-4 flex-wrap">
