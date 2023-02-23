@@ -6,18 +6,19 @@ import CardCountry from "../components/CardCountry";
 import "./Home.css";
 
 export default function Home() {
-  const [countary, setCountary] = useState([]);
-  const [info , setInfo] = useState([])
+  const [country, setCountry] = useState([]);
+  const [result, setResult] = useState([]);
+  const [info, setInfo] = useState([]);
 
   useEffect(() => {
     Api("https://restcountries.com/v3.1/all").then((data) => {
-      setCountary(data);
-      setInfo(data)
+      setCountry(data);
+      setInfo(data);
     });
   }, []);
 
   useEffect(() => {
-    const Result = countary?.map((item, index) => {
+    const Result = country?.map((item, index) => {
       return (
         <CardCountry
           key={index}
@@ -31,14 +32,14 @@ export default function Home() {
       );
     });
     setResult(Result);
-  }, [countary]);
+  }, [country]);
 
   const selectCountryHandler = (e) => {
-    const filterByRegion = countary.filter((countary) => {
+    const filterByRegion = country.filter((country) => {
       if (e.target.value === "All") {
         return true;
       } else {
-        return countary.region === e.target.value;
+        return country.region === e.target.value;
       }
     });
 
@@ -56,15 +57,20 @@ export default function Home() {
       );
     });
 
-    setInfo(filterByRegion)
+    setInfo(filterByRegion);
     setResult(selectResult);
   };
 
-  const liveSearchHandler = (term) => {
+  const liveSearchHandler = (text) => {
+    const currentTerm = text.target.value.trim()
+    
     const filterByName = info.filter((item) => {
-      return item.name.common.includes(term);
+      if (currentTerm === "") {
+        return true;
+      } else {
+        return item.name.common.includes(currentTerm);
+      }
     });
-
     const searchResult = filterByName.map((item, index) => {
       return (
         <CardCountry
@@ -92,15 +98,16 @@ export default function Home() {
             type="search"
             className="border-0"
             placeholder="search for a country..."
+            onChange={liveSearchHandler}
           />
         </form>
-        <select className="border-0 filter">
-          <option>Filter by Region</option>
-          <option>Africa</option>
-          <option>America</option>
-          <option>Asia</option>
-          <option>Europe</option>
-          <option>Oceania</option>
+        <select className="border-0 filter" onChange={selectCountryHandler}>
+          <option value="All">Filter by Region</option>
+          <option value="Africa">Africa</option>
+          <option value="Americas">America</option>
+          <option value="Asia">Asia</option>
+          <option value="Europe">Europe</option>
+          <option value="Oceania">Oceania</option>
         </select>
       </section>
       <section className="d-flex justify-content-center justify-content-sm-between mt-4 flex-wrap">
