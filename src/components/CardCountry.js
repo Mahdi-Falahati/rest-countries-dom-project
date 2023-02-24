@@ -11,7 +11,7 @@ export default function CardCountry({
   capital,
 }) {
   return (
-    <Link to={"/" + title} style={{ textDecoration: "none"}}>
+    <Link to={"/" + title} style={{ textDecoration: "none"}} className="cardsCountry">
       <Card
         style={{ width: "15rem", border: "none" }}
         className="my-5 mx-1 cardCountry"

@@ -13,7 +13,7 @@ export default function Country({
   currency,
   nName,
   topLevelDomin,
-  lang
+  lang,
 }) {
   return (
     <>
@@ -46,7 +46,7 @@ export default function Country({
               </button>
             );
           })}
-          {!borders&&" Border Coutries Is Not Exist..."}
+          {!borders && " Border Coutries Is Not Exist..."}
         </section>
       </Col>
     </>
