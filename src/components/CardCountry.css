@@ -1,3 +1,11 @@
 .cardCountry{
     color: var(--text-dark-blue);
 }
+
+.cardsCountry{
+    transition: all 0.7s;
+}
+.cardsCountry:hover{
+    border-radius: 15px;
+    transform: scale(1.1);
+}
