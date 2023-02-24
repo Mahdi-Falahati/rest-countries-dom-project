@@ -46,6 +46,7 @@ export default function Country({
               </button>
             );
           })}
+          {!borders&&" Border Coutries Is Not Exist..."}
         </section>
       </Col>
     </>
