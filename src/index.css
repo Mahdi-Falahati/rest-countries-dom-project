@@ -81,3 +81,7 @@ table {
 	font-size: 14px;
 	font-weight: 600;
 }
+
+main{
+	min-height: 89vh;
+}
