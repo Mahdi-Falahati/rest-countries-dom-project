@@ -89,7 +89,7 @@ export default function Home() {
   };
   return (
     <>
-      <section className="d-flex justify-content-between mt-4 flex-wrap">
+      <section className="d-flex justify-content-center justify-content-md-between mt-4 flex-wrap">
         <form className="searchForm">
           <button type="submit" style={{height:50}} className={`px-3 border-0 ${ctx.theme ? " element-dark-mode" : ""}`}>
             <FontAwesomeIcon icon={faMagnifyingGlass} className="magnify" />
