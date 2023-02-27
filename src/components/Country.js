@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import Col from "react-bootstrap/Col";
 import "../pages/CountryInfo.css";
+import { ThemeContext } from "../ThemeContext";
 
 export default function Country({
   name,
@@ -15,6 +17,7 @@ export default function Country({
   topLevelDomin,
   lang,
 }) {
+  const ctx = useContext(ThemeContext)
   return (
     <>
       <Col className="my-4 ">
@@ -41,7 +44,7 @@ export default function Country({
           <span className="border-Coutries me-3">Border Coutries:</span>
           {borders?.map((item, index) => {
             return (
-              <button className="bordersBtn" key={index}>
+              <button className={`bordersBtn ${ctx.theme ? " element-dark-mode" : ""}`} key={index}>
                 {item}
               </button>
             );

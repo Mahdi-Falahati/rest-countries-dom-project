@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import { ThemeContext } from "../ThemeContext";
 
 import "./CardCountry.css";
 
@@ -10,11 +12,12 @@ export default function CardCountry({
   region,
   capital,
 }) {
+  const ctx = useContext(ThemeContext)
   return (
     <Link to={"/" + title} style={{ textDecoration: "none"}} className="cardsCountry">
       <Card
         style={{ width: "15rem", border: "none" }}
-        className="my-5 mx-1 cardCountry"
+        className={`my-5 mx-1 cardCountry ${ctx.theme ? " element-dark-mode" : ""}`}
       >
         <Card.Img variant="top" src={imgSrc} alt={title} />
         <Card.Body>
@@ -23,13 +26,13 @@ export default function CardCountry({
           </Card.Title>
           <Card.Text>
             <span className="d-block my-1">
-              Population : <span className="text-secondary">{population}</span>
+              Population : <span>{population}</span>
             </span>
             <span className="d-block my-1">
-              Region : <span className="text-secondary">{region}</span>
+              Region : <span>{region}</span>
             </span>
             <span className="d-block my-1">
-              Capital : <span className="text-secondary">{capital}</span>
+              Capital : <span>{capital}</span>
             </span>
           </Card.Text>
         </Card.Body>

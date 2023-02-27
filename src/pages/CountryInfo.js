@@ -12,13 +12,15 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 //css
 import "./CountryInfo.css";
 import Api from "../Api";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Country from "../components/Country";
+import { ThemeContext } from "../ThemeContext";
 
 export default function CountryInfo() {
   let location = useLocation().pathname;
   const navigate = useNavigate();
   const [result, setResult] = useState();
+  const ctx = useContext(ThemeContext)
 
   location = location.replace("/", "");
   if (location.includes("%")) {
@@ -71,7 +73,7 @@ export default function CountryInfo() {
     <Container>
       <Row>
         <Col className="my-5">
-          <button onClick={goBack} className="px-4 py-1 btn-back">
+          <button onClick={goBack} className={`px-4 py-1 btn-back ${ctx.theme ? " element-dark-mode" : ""}`}>
             <FontAwesomeIcon icon={faArrowLeft} />
             <span className="mx-2">Back</span>
           </button>

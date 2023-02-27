@@ -1,15 +1,16 @@
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Api from "../Api";
 import CardCountry from "../components/CardCountry";
+import { ThemeContext } from "../ThemeContext";
 import "./Home.css";
 
 export default function Home() {
   const [country, setCountry] = useState([]);
   const [result, setResult] = useState([]);
   const [info, setInfo] = useState([]);
-
+  const ctx = useContext(ThemeContext);
   useEffect(() => {
     Api("https://restcountries.com/v3.1/all").then((data) => {
       setCountry(data);
@@ -62,8 +63,8 @@ export default function Home() {
   };
 
   const liveSearchHandler = (text) => {
-    const currentTerm = text.target.value.trim()
-    
+    const currentTerm = text.target.value.trim();
+
     const filterByName = info.filter((item) => {
       if (currentTerm === "") {
         return true;
@@ -86,22 +87,25 @@ export default function Home() {
     });
     setResult(searchResult);
   };
-
   return (
     <>
       <section className="d-flex justify-content-between mt-4 flex-wrap">
         <form className="searchForm">
-          <button type="submit" className="border-0">
+          <button type="submit" style={{height:50}} className={`px-3 border-0 ${ctx.theme ? " element-dark-mode" : ""}`}>
             <FontAwesomeIcon icon={faMagnifyingGlass} className="magnify" />
           </button>
           <input
+            style={{height:50}}
             type="search"
-            className="border-0"
+            className={`border-0 ${ctx.theme ? " element-dark-mode" : ""}`}
             placeholder="search for a country..."
             onChange={liveSearchHandler}
           />
         </form>
-        <select className="border-0 filter" onChange={selectCountryHandler}>
+        <select
+          className={`p-3 border-0 filter ${ctx.theme ? " element-dark-mode" : ""}`}
+          onChange={selectCountryHandler}
+        >
           <option value="All">Filter by Region</option>
           <option value="Africa">Africa</option>
           <option value="Americas">America</option>

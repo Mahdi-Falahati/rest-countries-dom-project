@@ -80,8 +80,18 @@ table {
 	font-family: 'Nunito Sans', sans-serif;
 	font-size: 14px;
 	font-weight: 600;
-}
+}							
 
 main{
 	min-height: 89vh;
+}
+
+.bg-dark-mode{
+	background: var(--bg-dark-blue) !important;
+	color: var(--white-color) !important;
+}
+
+.element-dark-mode{
+	background: var(--dark-blue) !important;
+	color: var(--white-color) !important;
 }
